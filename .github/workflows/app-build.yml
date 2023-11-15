@@ -7,7 +7,8 @@ env:
 
 on:
   push:
-    branches: [ main]
+    branches: [main]
+  pull_request:
 
 permissions:
   actions: read
@@ -45,5 +46,4 @@ jobs:
       run: |
         docker login -u ${{env.DOCKER_USER}} -p ${{env.DOCKER_PASSWORD}}
         docker push ${{env.DOCKER_USER}}/${{env.DOCKER_REPOSITORY}}:${{env.NODE_IMAGE_TAG}}
-      
       
